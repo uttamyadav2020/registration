@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Registration</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main class="container">
+		<h1>Register</h1>
+
+		<form id="regForm" novalidate>
+			<div class="row two-up">
+				<div class="field">
+					<label for="first">First name</label>
+					<input id="first" name="first" required minlength="2" />
+					<div class="error" id="firstError" aria-live="polite"></div>
+				</div>
+
+				<div class="field">
+					<label for="last">Last name</label>
+					<input id="last" name="last" required minlength="2" />
+					<div class="error" id="lastError" aria-live="polite"></div>
+				</div>
+			</div>
+
+			<div class="row">
+				<label for="email">Email</label>
+				<input id="email" name="email" type="email" required />
+				<div class="error" id="emailError" aria-live="polite"></div>
+			</div>
+
+			<div class="row">
+				<label for="password">Password</label>
+				<div class="input-group">
+					<input id="password" name="password" type="password" required minlength="6" autocomplete="new-password" />
+					<button type="button" class="toggle" id="togglePassword" aria-label="Show password">Show</button>
+				</div>
+				<div class="pw-meter" id="pwMeter">
+					<div class="pw-bar" id="pwBar"></div>
+					<div class="pw-text" id="pwText">&nbsp;</div>
+				</div>
+				<div class="error" id="passwordError" aria-live="polite"></div>
+			</div>
+
+			<div class="row">
+				<label for="confirm">Confirm password</label>
+				<input id="confirm" name="confirm" type="password" required minlength="6" />
+				<div class="error" id="confirmError" aria-live="polite"></div>
+			</div>
+
+			<div class="row">
+				<label for="role">Role</label>
+				<select id="role" name="role">
+					<option value="user">User</option>
+					<option value="organizer">Organizer</option>
+					<option value="admin">Admin</option>
+				</select>
+			</div>
+
+			<div id="orgFields" class="row hidden">
+				<label for="org">Organization name</label>
+				<input id="org" name="org" />
+				<div class="error" id="orgError" aria-live="polite"></div>
+			</div>
+
+			<div class="row">
+				<label>
+					<input id="terms" name="terms" type="checkbox" /> I agree to the terms
+				</label>
+				<div class="error" id="termsError" aria-live="polite"></div>
+			</div>
+
+			<div class="actions">
+				<button type="submit">Register</button>
+				<button type="button" id="preview">Preview</button>
+			</div>
+		</form>
+
+		<section id="previewPane" class="panel hidden">
+			<h2>Preview</h2>
+			<pre id="previewJson"></pre>
+		</section>
+
+		<section id="message" class="panel hidden"></section>
+	</main>
+
+	<script src="script.js"></script>
+</body>
+</html>
+
